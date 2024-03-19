@@ -28,9 +28,9 @@ public class Pessoa {
     private Long id;
     @Column(name = "NM_PESSOA")
     private String nome;
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL_PESSOA")
     private String email;
-    @Column(name = "NASCIMENTO")
+    @Column(name = "NASC_PESSOA")
     private LocalDate nascimento;
 
 }
