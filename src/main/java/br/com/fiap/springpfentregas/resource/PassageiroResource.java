@@ -13,16 +13,16 @@ import java.util.List;
 public class PassageiroResource {
 
     @Autowired
-    private PassageiroRepository passageiroRepository;
+    private PassageiroRepository passageiroRep;
 
     @GetMapping
     public List<Passageiro> getAll() {
-        return passageiroRepository.findAll();
+        return passageiroRep.findAll();
     }
 
     @Transactional
     @PostMapping
     public Passageiro post(@RequestBody Passageiro passageiro) {
-        return passageiroRepository.save(passageiro);
+        return passageiroRep.save(passageiro);
     }
 }

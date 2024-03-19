@@ -12,21 +12,21 @@ import java.util.List;
 @RequestMapping(value = "/endereco")
 public class EnderecoResource {
     @Autowired
-    private EnderecoRepository enderecoRepository;
+    private EnderecoRepository enderecoRep;
 
     @GetMapping
     public List<Endereco> getAll(){
-        return enderecoRepository.findAll();
+        return enderecoRep.findAll();
     }
 
     @Transactional
     @PostMapping
     public Endereco post(@RequestBody Endereco endereco) {
-        return enderecoRepository.save(endereco);
+        return enderecoRep.save(endereco);
     }
 
     @GetMapping(value = "/{id}")
     public Endereco getById(@PathVariable Long id) {
-        return enderecoRepository.findById(id).orElseThrow();
+        return enderecoRep.findById(id).orElseThrow();
     }
 }

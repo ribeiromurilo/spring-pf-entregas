@@ -13,21 +13,21 @@ import java.util.List;
 public class ProdutoResource {
 
     @Autowired
-    private ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRep;
 
     @GetMapping
     public List<Produto> getAll() {
-        return produtoRepository.findAll();
+        return produtoRep.findAll();
     }
 
     @Transactional
     @PostMapping
     public Produto post(@RequestBody Produto produto) {
-        return produtoRepository.save(produto);
+        return produtoRep.save(produto);
     }
 
     @GetMapping(value = "/{id}")
     public Produto getByID(@PathVariable Long id) {
-        return produtoRepository.findById(id).orElseThrow();
+        return produtoRep.findById(id).orElseThrow();
     }
 }

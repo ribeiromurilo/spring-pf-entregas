@@ -12,21 +12,21 @@ import java.util.List;
 @RequestMapping(value = "/pessoa")
 public class PessoaResource {
     @Autowired
-    private PessoaRepository pessoaRepository;
+    private PessoaRepository pessoaRep;
 
     @GetMapping
     public List<Pessoa> getAll() {
-        return pessoaRepository.findAll();
+        return pessoaRep.findAll();
     }
 
     @Transactional
     @PostMapping
     public Pessoa post(@RequestBody Pessoa pessoa) {
-        return pessoaRepository.save(pessoa);
+        return pessoaRep.save(pessoa);
     }
 
     @GetMapping(value = "/{id}")
     public Pessoa getById(@PathVariable Long id) {
-        return pessoaRepository.findById(id).orElseThrow();
+        return pessoaRep.findById(id).orElseThrow();
     }
 }
