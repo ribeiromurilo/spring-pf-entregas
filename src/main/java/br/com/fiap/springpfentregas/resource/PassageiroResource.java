@@ -25,4 +25,9 @@ public class PassageiroResource {
     public Passageiro post(@RequestBody Passageiro passageiro) {
         return passageiroRep.save(passageiro);
     }
+
+    @GetMapping(value = "/{id}")
+    public Passageiro getById(@PathVariable Long id) {
+        return passageiroRep.findById(id).orElseThrow();
+    }
 }

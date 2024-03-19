@@ -11,11 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/endereco")
 public class EnderecoResource {
+
     @Autowired
     private EnderecoRepository enderecoRep;
 
     @GetMapping
-    public List<Endereco> getAll(){
+    public List<Endereco> getAll() {
         return enderecoRep.findAll();
     }
 
@@ -25,8 +26,13 @@ public class EnderecoResource {
         return enderecoRep.save(endereco);
     }
 
-    @GetMapping(value = "/{id}")
-    public Endereco getById(@PathVariable Long id) {
-        return enderecoRep.findById(id).orElseThrow();
+    @GetMapping(value = "/cep/{cep}")
+    public Endereco getByCep(@PathVariable String cep) {
+        return enderecoRep.findByCep(cep).orElseThrow();
+    }
+
+    @GetMapping(value = "/pessoa/{idPessoa}")
+    public List<Endereco> getByPessoaId(@PathVariable Long idPessoa) {
+        return enderecoRep.findByPessoaId(idPessoa);
     }
 }
